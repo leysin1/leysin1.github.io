@@ -67,7 +67,7 @@ function update() {
 
     // Food
     ctx.fillStyle = 'red';
-    ctx.fillRect(foodX, foodY, blockSize, blockSize);
+    ctx.fillRect(foodX, foodY, blockSize -2, blockSize -2);
 
     // Wenn die schlange das essen frisst:
     if (snakeX == foodX && snakeY == foodY) {
