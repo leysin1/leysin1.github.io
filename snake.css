@@ -1,0 +1,27 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+    text-align: center;
+    color: lime;
+    font-size: xx-large;
+    
+}
+p {
+    font-family: 'Courier New', Courier, monospace;
+    color:orange ;
+    font-size:xx-large;
+    
+    
+
+}
+span{
+    font-family: 'Courier New', Courier, monospace;
+    color: orange;
+    font-size: xx-large;
+    outline: auto;
+    outline-offset: 8px;
+}
