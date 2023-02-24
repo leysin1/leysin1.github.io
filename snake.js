@@ -60,7 +60,7 @@ function placeFood() {
 }
 
 function update() {
-    document.addEventListener('keyup', changeDirection)
+    document.addEventListener('keydown', changeDirection)
     
     if (gameOver) {
         return;
@@ -119,23 +119,23 @@ function changeDirection(e) {
     if (e.code == "ArrowUp" && velocityY != 1) {
         velocityX = 0;
         velocityY = -1;
-        document.removeEventListener('keyup', changeDirection)
+        document.removeEventListener('keydown', changeDirection)
         
     }
     if (e.code == "ArrowDown" && velocityY != -1) {
         velocityX = 0;
         velocityY = 1;
-        document.removeEventListener('keyup', changeDirection)
+        document.removeEventListener('keydown', changeDirection)
     }
     if (e.code == "ArrowLeft" && velocityX != 1) {
         velocityX = -1;
         velocityY = 0;
-        document.removeEventListener('keyup', changeDirection)
+        document.removeEventListener('keydown', changeDirection)
     }
     if (e.code == "ArrowRight" && velocityX != -1) {
         velocityX = 1;
         velocityY = 0;
-        document.removeEventListener('keyup', changeDirection)
+        document.removeEventListener('keydown', changeDirection)
         
         
     }
