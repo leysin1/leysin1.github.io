@@ -25,8 +25,7 @@ let foodX;
 let foodY;
 
 // Game speed
-var difficulty = 150;
-
+var difficulty = 1000 / 7;
 // Variable für gameover bedingung
 let gameOver = false;
 
@@ -41,10 +40,13 @@ window.onload = function () {
 
     // main logic
     placeFood();
-    document.addEventListener("keyup", changeDirection);
 
     // UPDATE
+
     setInterval(update, difficulty);
+   
+
+
 }
 
 function incrementScore() {
@@ -58,6 +60,8 @@ function placeFood() {
 }
 
 function update() {
+    document.addEventListener('keyup', changeDirection)
+    
     if (gameOver) {
         return;
     }
@@ -67,7 +71,7 @@ function update() {
 
     // Food
     ctx.fillStyle = 'red';
-    ctx.fillRect(foodX, foodY, blockSize -2, blockSize -2);
+    ctx.fillRect(foodX, foodY, blockSize - 1, blockSize - 1);
 
     // Wenn die schlange das essen frisst:
     if (snakeX == foodX && snakeY == foodY) {
@@ -89,7 +93,7 @@ function update() {
     snakeX += velocityX * blockSize;
     snakeY += velocityY * blockSize;
     ctx.fillRect(snakeX, snakeY, blockSize - 1, blockSize - 1);
-    
+
     for (let i = 0; i < snakes.length; i++) {
         ctx.fillRect(snakes[i][0], snakes[i][1], blockSize - 1, blockSize - 1);
     }
@@ -107,24 +111,33 @@ function update() {
         }
     }
 
+
 }
 // Bewegungssteuerung
 function changeDirection(e) {
+
     if (e.code == "ArrowUp" && velocityY != 1) {
         velocityX = 0;
         velocityY = -1;
+        document.removeEventListener('keyup', changeDirection)
+        
     }
     if (e.code == "ArrowDown" && velocityY != -1) {
         velocityX = 0;
         velocityY = 1;
+        document.removeEventListener('keyup', changeDirection)
     }
     if (e.code == "ArrowLeft" && velocityX != 1) {
         velocityX = -1;
         velocityY = 0;
+        document.removeEventListener('keyup', changeDirection)
     }
     if (e.code == "ArrowRight" && velocityX != -1) {
         velocityX = 1;
         velocityY = 0;
+        document.removeEventListener('keyup', changeDirection)
+        
+        
     }
 
 }
