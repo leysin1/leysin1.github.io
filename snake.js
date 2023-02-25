@@ -60,7 +60,7 @@ function placeFood() {
 }
 
 function update() {
-    document.addEventListener('keydown', changeDirection)
+    setInterval(document.addEventListener('keydown', changeDirection), 100)
     
     if (gameOver) {
         return;
@@ -139,5 +139,6 @@ function changeDirection(e) {
         
         
     }
+    
 
 }
